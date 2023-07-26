@@ -1,7 +1,9 @@
 
 
 
-import {  } from "./lib/index.js";
+import { xhrPromise } from "./lib/index.js";
+
+
 
 
 
