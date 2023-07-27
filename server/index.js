@@ -1,14 +1,14 @@
 
 
-const liveServer = require('live-server');
+// const liveServer = require('live-server');
 
-const params = {
-  port:5500,
-  host:'localhost',
-  root:'./client',
-  open:false
-}
+// const params = {
+//   port:5500,
+//   host:'localhost',
+//   root:'./client',
+//   open:false
+// }
 
-liveServer.start(params);
+// liveServer.start(params);
 
 

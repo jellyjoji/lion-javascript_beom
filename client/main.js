@@ -1,15 +1,16 @@
 /* global gsap */
 
 import { 
+  attr,
   tiger,
   delayP,
   insertLast, 
   getNode as $, 
   changeColor,
   renderSpinner,
+  clearContents,
   renderUserCard,
   renderEmptyCard,
-  attr,
  } from './lib/index.js';
 
 // [phase-1]
@@ -29,7 +30,10 @@ import {
 
 
 // [phase-3]
-//
+// json-server 구성
+// data 설계
+// get, delete 통신 localhost
+// delete => 리랜더링(clear,render)
 
 
 const userCardInner = $('.user-card-inner');
@@ -38,7 +42,7 @@ async function renderUserList(){
   renderSpinner(userCardInner)
   try{
 
-    // await delayP({timeout:2000});
+    await delayP();
 
     gsap.to('.loadingSpinner',{
       opacity:0,
@@ -46,7 +50,7 @@ async function renderUserList(){
         $('.loadingSpinner').remove();
       }
     })
-    const response = await tiger.get('https://jsonplaceholder.typicode.com/users')
+    const response = await tiger.get('http://localhost:3000/users')
     const userData = response.data;
 
     userData.forEach((item)=> renderUserCard(userCardInner,item))
@@ -90,9 +94,12 @@ function handleDelete(e){
   const id = attr(article,'data-index').slice(5);
 
   
-  tiger.delete(`https://jsonplaceholder.typicode.com/users/${id}`)
-
-
+  tiger.delete(`http://localhost:3000/users/${id}`)
+  .then(()=>{
+    // 컨텐츠 항목 전체 지우기
+    clearContents(userCardInner);
+    renderUserList();
+  })
 }
 
 
