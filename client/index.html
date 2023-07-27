@@ -4,23 +4,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <script src="./main.js" type="module"></script>
+    <link rel="stylesheet" href="./pokemon.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="./pokemon.js" type="module"></script>
     <title>범쌤과 함께하는 자바스크립트</title>
-
   </head>
 
   <body>
 
+   
     <div class="container">
-
-        <label for="textField"></label>
-        <textarea name="someText" id="textField" cols="30" rows="10"></textarea>
-        <button type="button" data-name="clear">clear</button>
+      <h1 class="logo"><img src="./assets/logo.png" alt="포켓몬 로고" /></h1>
+      <div class="search">
+        <label for="searchField"></label>
+        <input type="search" id="searchField" placeholder="Search..."/>
+      </div>
 
     </div>
+
+    <ul class="pokemonList">
+
+    </ul>
 
   </body>
 
 </html>
-

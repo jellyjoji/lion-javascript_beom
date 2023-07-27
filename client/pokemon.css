@@ -1,0 +1,108 @@
+
+
+h1{
+  max-width: 50vw;
+  margin: 0 auto;
+}
+
+
+h1 img{
+  width: 100%;
+}
+
+button{
+  border:none;
+  background:none;
+  cursor:pointer;
+  width: 100%;
+}
+
+.search{
+  text-align: center;
+  
+}
+.search input{
+  transition:all 0.5s;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  width: 100px;
+}
+
+.search input:focus{
+  width: 200px;
+}
+
+.pokemonList{
+  list-style: none;
+  display:flex;
+  flex-wrap: wrap;
+  text-align: center;
+  gap:1.2rem;
+  justify-content: center;
+  
+}
+
+.pokemonList > li{
+  min-width: 120px;
+  
+  
+}
+
+.pokemonList > li:hover{
+  border: none;
+}
+
+.pokemonList > li button{
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  transition: all .3s;
+}
+.pokemonList > li button:focus,
+.pokemonList > li button:hover{
+  
+   transform:translate(-5px,-5px);
+   box-shadow: 5px 5px 8px 1px #00000033;
+}
+/* 
+.pokemonList > li:hover{
+   background:black
+} */
+
+.pokemonList .name{
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.pokemonList .types{
+  margin:0.5rem 0;
+}
+.pokemonList .types span{
+  padding: 0.2rem 0.5rem;
+  background: dodgerblue;
+  display: inline-block;
+  border-radius: 0.2rem;
+  color: #fff;
+}
+
+
+.pokemonList .types .normal{ background:rgb(95, 95, 95); }
+.pokemonList .types .grass{ background:rgb(0, 161, 65); }
+.pokemonList .types .fighting{ background:rgb(104, 0, 63); }
+.pokemonList .types .poison{ background:rgb(143, 0, 129); }
+.pokemonList .types .bug{ background:rgb(93, 127, 0); }
+.pokemonList .types .flying{ background:rgb(0, 157, 165); }
+.pokemonList .types .ground{ background:rgb(188, 113, 0); }
+.pokemonList .types .fire{ background:rgb(200, 0, 0); }
+.pokemonList .types .water{ background:rgb(0, 66, 164); }
+.pokemonList .types .dragon{ background:rgb(231, 0, 247); }
+.pokemonList .types .psychic{background:rgb(0, 0, 0); }
+.pokemonList .types .fairy{color:black; background:rgb(255, 209, 100); }
+.pokemonList .types .ice{ color:black; background:rgb(204, 235, 255); }
+.pokemonList .types .electric{ color:black;background:rgb(255, 255, 0); }
+
+
+
+
+
+
+
