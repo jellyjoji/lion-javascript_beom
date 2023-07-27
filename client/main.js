@@ -9,6 +9,7 @@ import {
   renderSpinner,
   renderUserCard,
   renderEmptyCard,
+  attr,
  } from './lib/index.js';
 
 // [phase-1]
@@ -21,9 +22,14 @@ import {
 // 4. 함수 분리 하기 
 
 
+// [phase-2]
+// 1. 에러가 발생 했을 때 
+// 2. empty svg를 생성하고 랜더링 해주세요 
+// 3. 함수 분리
 
-// 에러가 발생 했을 때 
-// empty svg를 생성하고 랜더링 해주세요 
+
+// [phase-3]
+//
 
 
 const userCardInner = $('.user-card-inner');
@@ -32,7 +38,7 @@ async function renderUserList(){
   renderSpinner(userCardInner)
   try{
 
-    await delayP({timeout:2000});
+    // await delayP({timeout:2000});
 
     gsap.to('.loadingSpinner',{
       opacity:0,
@@ -40,7 +46,7 @@ async function renderUserList(){
         $('.loadingSpinner').remove();
       }
     })
-    const response = await tiger.get('https://jsonplaceholder.typicode.com/user')
+    const response = await tiger.get('https://jsonplaceholder.typicode.com/users')
     const userData = response.data;
 
     userData.forEach((item)=> renderUserCard(userCardInner,item))
@@ -63,6 +69,38 @@ async function renderUserList(){
 
 
 renderUserList()
+
+
+
+
+// 버튼을 클릭 했을 때 해당 article의 id 값을 가져옴.
+
+// - 이벤트 위임 e.target
+// - button 선택하기 -> 클릭한 대상의 가장 가까운... method
+// - attr() ,  dataset
+
+
+function handleDelete(e){
+  const button = e.target.closest('button');
+  const article = e.target.closest('article')
+
+
+  if(!article || !button) return;
+
+  const id = attr(article,'data-index').slice(5);
+
+  
+  tiger.delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+
+
+}
+
+
+
+
+userCardInner.addEventListener('click',handleDelete);
+
+
 
 
 
